@@ -28,16 +28,55 @@ class LoginUI extends StatelessWidget {
                     'Login',
                     style:Styles.loginStyle),
                     const SizedBox(height: 10,),
-                    Text('Welcome Back',style: Styles.loginInfo,)
+                    Text('Welcome Back',style: Styles.loginInfo,),
+                      const SizedBox(height: 20,)
+                  
               ],),
               
               ),
               Expanded(
+                
                 child: Container(
                   decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius:BorderRadius.only(topLeft: Radius.circular(60),topRight: Radius.circular(60))
                   ),
+                 
+                  child:  Padding(padding:const EdgeInsets.only(top: 40,left: 20,right: 20),
+                  child: Column(children: <Widget>[
+                    const SizedBox(height: 40,),
+                    Container(
+                        padding:const EdgeInsets.all(30),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                          
+                          boxShadow:const [BoxShadow(
+                            color: Color.fromRGBO(50, 150, 150, 0.3),
+                            blurRadius: 20,
+                            offset: Offset(0,10)
+                         
+                          )]
+                        ),
+                        child: Column(children: <Widget>[
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: const BoxDecoration(
+                              border: Border(bottom: BorderSide(color:Colors.grey))
+                            ),
+                            child: const TextField(
+                              decoration: InputDecoration(
+                                hintText: 'Email ',
+                                hintStyle: TextStyle(color:Colors.grey),
+                                border: InputBorder.none
+                              ),
+                              
+                            ),
+                            
+                          )
+                        ]),
+                    )
+                  ]),),
 
                 )
               )

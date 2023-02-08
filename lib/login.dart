@@ -42,11 +42,13 @@ class LoginUI extends StatelessWidget {
                     borderRadius:BorderRadius.only(topLeft: Radius.circular(60),topRight: Radius.circular(60))
                   ),
                  
-                  child:  Padding(padding:const EdgeInsets.only(top: 40,left: 20,right: 20),
-                  child: Column(children: <Widget>[
-                    const SizedBox(height: 40,),
+                  child:  Padding(
+                    padding:const EdgeInsets.all(20),
+                    child: Column(
+                      children: <Widget>[
+                    const SizedBox(height:90,),
                     Container(
-                        padding:const EdgeInsets.all(30),
+                        padding:const EdgeInsets.all(20),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10),
@@ -58,9 +60,9 @@ class LoginUI extends StatelessWidget {
                          
                           )]
                         ),
-                        child: Column(children: <Widget>[
+                        child: Column(
+                          children: <Widget>[
                           Container(
-                            padding: const EdgeInsets.all(10),
                             decoration: const BoxDecoration(
                               border: Border(bottom: BorderSide(color:Colors.grey))
                             ),
@@ -73,9 +75,68 @@ class LoginUI extends StatelessWidget {
                               
                             ),
                             
-                          )
+                          ),
+                                Container(
+                            decoration: const BoxDecoration(
+                              border: Border(bottom: BorderSide(color:Colors.grey))
+                            ),
+                            child: const TextField(
+                              decoration: InputDecoration(
+                                hintText: 'Password ',
+                                hintStyle: TextStyle(color:Colors.grey),
+                                border: InputBorder.none
+                              ),
+                              
+                            ),
+                            
+                          ),
+                          
                         ]),
-                    )
+                    ),
+                    const SizedBox(height: 40,),
+                    Styles.forgotPassword,
+                    const SizedBox(height: 40,),
+                    Container(
+                      height: 50,
+                      margin: const EdgeInsets.symmetric(horizontal:50),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: Colors.purple
+                      ),
+                      child: Center(child: Styles.loginButton),
+                     
+                    ),
+                      const SizedBox(height: 30,),
+                      Styles.continueWith,
+                      const SizedBox(height: 30,),
+                      Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: Container(
+                              height: 50,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: Colors.blue
+                                
+                              ),
+                              child:Center( child:Styles.facebookButton),
+                            ),
+                            
+                          ),
+                          const SizedBox(width: 30,),
+                           Expanded(
+                            child: Container(
+                              height: 50,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: Colors.deepPurple
+                              ),
+                              child: Center(child: Styles.githubButton),
+                            ),
+                            
+                          )
+                        ],
+                      )
                   ]),),
 
                 )
@@ -98,4 +159,9 @@ class Styles{
       fontSize: 20,
       color: Colors.white
   );
+  static Text forgotPassword=const Text('Forgot Password?',style: TextStyle(color: Colors.grey),);
+  static Text loginButton=const Text('Login',style:TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w400),);
+  static Text continueWith=const Text('Continue with Social Media',style: TextStyle(color: Colors.grey),);
+  static Text facebookButton=const Text('Facebook',style:TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w400),);
+  static Text githubButton=const Text('Github',style:TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w400,),);
 }

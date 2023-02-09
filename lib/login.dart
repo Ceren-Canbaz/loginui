@@ -5,16 +5,17 @@ class LoginUI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const bool _obsourceText=true;
     return Scaffold(
         body: Container(
-      padding: const EdgeInsets.symmetric(vertical: 30),
-      width: double.infinity,
+      padding: const EdgeInsets.only(top: 30),
+     
       decoration: const BoxDecoration(
           gradient: LinearGradient(
               begin: Alignment.topCenter,
               colors: [Colors.purple, Colors.teal])),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <
-          Widget>[
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, 
+      children: <Widget>[
         const SizedBox(
           height: 30,
         ),
@@ -46,9 +47,7 @@ class LoginUI extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: Column(children: <Widget>[
-              const SizedBox(
-                height: 90,
-              ),
+            const SizedBox(height: 50,),
               Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
@@ -75,11 +74,17 @@ class LoginUI extends StatelessWidget {
                     decoration: const BoxDecoration(
                         border: Border(bottom: BorderSide(color: Colors.grey))),
                     child: const TextField(
+                      obscureText: _obsourceText,
+                      enableSuggestions: false,
+                      autocorrect: false,
                       decoration: InputDecoration(
                           hintText: 'Password ',
                           hintStyle: TextStyle(color: Colors.grey),
                           border: InputBorder.none),
-                    ),
+                        
+                   ),
+                    
+                    
                   ),
                 ]),
               ),

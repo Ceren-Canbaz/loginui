@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class LoginUI extends StatelessWidget {
@@ -5,8 +6,9 @@ class LoginUI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const bool _obsourceText=true;
+  
     return Scaffold(
+      resizeToAvoidBottomInset:false,
         body: Container(
       padding: const EdgeInsets.only(top: 30),
      
@@ -39,14 +41,15 @@ class LoginUI extends StatelessWidget {
           ),
         ),
         Expanded(
-            child: Container(
+          child: Container(
           decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(60), topRight: Radius.circular(60))),
           child: Padding(
             padding: const EdgeInsets.all(20),
-            child: Column(children: <Widget>[
+            child: Column(
+              children: <Widget>[
             const SizedBox(height: 50,),
               Container(
                 padding: const EdgeInsets.all(20),
@@ -74,7 +77,7 @@ class LoginUI extends StatelessWidget {
                     decoration: const BoxDecoration(
                         border: Border(bottom: BorderSide(color: Colors.grey))),
                     child: const TextField(
-                      obscureText: _obsourceText,
+                      obscureText: true,
                       enableSuggestions: false,
                       autocorrect: false,
                       decoration: InputDecoration(
@@ -112,6 +115,7 @@ class LoginUI extends StatelessWidget {
                     width: 30,
                   ),
                   Expanded(
+                  flex:1,
                   child:ButtonStyles.buttonGithub,
                   )
                 ],
@@ -143,7 +147,7 @@ class Styles {
     style: TextStyle(color: Colors.grey),
   );
   static Text facebookButton = const Text(
-    'Facebook',
+    'Facebook  ',
     style: TextStyle(
         color: Colors.white, fontSize: 16, fontWeight: FontWeight.w400),
   );
@@ -172,14 +176,18 @@ class ButtonStyles {
   
   static ElevatedButton buttonFacebook = ElevatedButton(
       style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.blue,
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(20)))),
       onPressed: () {},
       child: Padding(
           padding:
-              const EdgeInsets.only(bottom: 15, top: 15, left: 20, right: 20),
-          child: Styles.facebookButton));
+              const EdgeInsets.only(bottom: 15, top: 15, left: 10, right: 10),
+          child: Row(children: [
+              Styles.facebookButton,
+            
+               const PngItems(name: 'facebook')
+           
+          ],)));
   
   static ElevatedButton buttonGithub = ElevatedButton(
       style: ElevatedButton.styleFrom(
@@ -191,4 +199,18 @@ class ButtonStyles {
           padding:
               const EdgeInsets.only(bottom: 15, top: 15, left: 20, right: 20),
           child: Styles.githubButton));
+}
+class PngItems extends StatelessWidget {
+  const PngItems({super.key, required this.name});
+  final String name;
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(height: 20,width: 20,
+      child: Image.asset('assets/png_logo/$name.png',fit:BoxFit.fill));
+  }
+}
+class PngNames{
+  final String facebookImgPath='facebook';
+  final String githubImgPath='github-mark-white';
+  
 }
